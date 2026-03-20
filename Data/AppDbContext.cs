@@ -52,7 +52,7 @@ public class AppDbContext : IdentityDbContext<ApplicationUser>
             .Property(n => n.IsRead)
             .HasDefaultValue(false);
 
-        // 🔥 FIX CASCADE (QUAN TRỌNG NHẤT)
+        // 🔥 FIX CASCADE 
 
         // Comment
         builder.Entity<Comment>()
@@ -68,7 +68,7 @@ public class AppDbContext : IdentityDbContext<ApplicationUser>
             .HasForeignKey(l => l.PostId)
             .OnDelete(DeleteBehavior.Restrict);
 
-        // PostReport 🔥 (bạn thiếu cái này)
+        // PostReport 
         builder.Entity<PostReport>()
             .HasOne(r => r.Post)
             .WithMany(p => p.Reports)
